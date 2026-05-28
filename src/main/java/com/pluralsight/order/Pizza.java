@@ -1,19 +1,20 @@
 package com.pluralsight.order;
 
-import com.pluralsight.toppings.Toppings;
+import com.pluralsight.toppings.Topping;
 
 import java.util.List;
 
-public class Pizza extends Item {
+public class Pizza {
     public int size;
     public String crustSize;
+    public String crustType;
     public boolean stuffedCrust;
-    public List<Toppings> toppings;
+    public List<Topping> toppings;
 
-    public Pizza(double price, int size, String crustSize, boolean stuffedCrust, List<Toppings> toppings) {
-        super(price);
+    public Pizza(double price, int size, String crustSize, String crustType, boolean stuffedCrust, List<Topping> toppings) {
         this.size = size;
         this.crustSize = crustSize;
+        this.crustType = crustType;
         this.stuffedCrust = stuffedCrust;
         this.toppings = toppings;
     }
@@ -26,18 +27,17 @@ public class Pizza extends Item {
         return crustSize;
     }
 
-    public List<Toppings> getToppings(){
+    public List<Topping> getToppings(){
         return toppings;
     }
 
-    public void addTopping() {
-
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
     }
 
-    @Override
     public void calculatePrice() {
 
-    }
+    } // use for loop through toppings
 
     @Override
     public String toString() {

@@ -6,9 +6,10 @@ import com.pluralsight.order.Pizza;
 import java.util.Scanner;
 
 public class UserInterface {
-    static Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+    private Order currentOrder;
+
     public static void main(String[] args) {
-        Order order;
         Scanner scanner = new Scanner(System.in);
         int choice = -1;
         while (choice != 2) {
@@ -36,6 +37,7 @@ public class UserInterface {
     }
 
     public static void addPizza() {
+        // Pizza Size
         System.out.println("Pick a size:");
         System.out.println("1. 8 in.");
         System.out.println("2. 12 in.");
@@ -65,6 +67,32 @@ public class UserInterface {
             }
         }
 
-        System.out.println("");
+        // Crust Type
+        System.out.println("Choose a crust type:");
+        System.out.println("1. Thin");
+        System.out.println("2. Regular");
+        System.out.println("3. Thick");
+        int crustInput = Integer.parseInt(scanner.nextLine());
+
+        String crustType;
+
+        switch (crustInput) {
+            case 1 -> {
+                crustType = "thin";
+            }
+            case 2 -> {
+                crustType = "regular";
+            }
+            case 3 -> {
+                crustType = "thick";
+            }
+        }
+
+        System.out.println("Stuffed crust? (yes/no)");
+        String stuffedCrust = scanner.nextLine();
+
+        if (stuffedCrust.equalsIgnoreCase("yes")){
+
+        }
     }
 }

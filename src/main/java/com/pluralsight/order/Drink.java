@@ -1,11 +1,10 @@
 package com.pluralsight.order;
 
-public class Drinks extends Item {
+public class Drink {
     private String flavor;
     private char size;
 
-    public Drinks(double price, String flavor, char size) {
-        super(price);
+    public Drink(String flavor, char size) {
         this.flavor = flavor;
         this.size = size;
     }
@@ -18,7 +17,7 @@ public class Drinks extends Item {
         return size;
     }
 
-    @Override
+
     public void calculatePrice() {
         double price;
         if (size == 'S') {

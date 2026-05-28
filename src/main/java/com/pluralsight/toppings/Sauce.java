@@ -1,4 +1,4 @@
 package com.pluralsight.toppings;
 
-public class Sauces {
+public class Sauce {
 }
