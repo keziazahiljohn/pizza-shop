@@ -11,7 +11,7 @@ public class Order {
     private List<BreadSide> breadAmount;
 
     public LocalDateTime getOrderDateTime() {
-        return orderDateTime;
+        return LocalDateTime.now();
     }
 
     public List<Pizza> getPizzaAmount() {
@@ -26,15 +26,15 @@ public class Order {
         return breadAmount;
     }
 
-    public void addPizza() {
+    public void addPizza(Pizza pizza) {
 
     }
 
-    public void addDrink() {
+    public void addDrink(Drinks drink) {
 
     }
 
-    public void addBreadSide() {
+    public void addBreadSide(BreadSide breadSide) {
 
     }
 

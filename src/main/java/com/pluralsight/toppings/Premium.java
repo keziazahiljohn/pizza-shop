@@ -1,4 +1,8 @@
 package com.pluralsight.toppings;
 
-public class Premium {
+public abstract class Premium {
+    public String name;
+    private boolean extra;
+
+
 }
