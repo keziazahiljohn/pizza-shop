@@ -1,6 +1,7 @@
 package com.pluralsight.main;
 
 import com.pluralsight.order.Order;
+import com.pluralsight.order.Pizza;
 
 import java.util.Scanner;
 
@@ -40,6 +41,30 @@ public class UserInterface {
         System.out.println("2. 12 in.");
         System.out.println("3. 16 in.");
 
-        int input = Integer.parseInt(scanner.nextLine());
+        int pizzaChoice = Integer.parseInt(scanner.nextLine());
+
+        int size = 0;
+        double price = 0.0;
+
+        switch (pizzaChoice) {
+            case 1 -> {
+                size = 8;
+                price = 8.50;
+            }
+            case 2 -> {
+                size = 12;
+                price = 12.00;
+            }
+            case 3 -> {
+                size = 16;
+                price = 16.50;
+            }
+            default -> {
+                System.out.println("Invalid size.");
+                return;
+            }
+        }
+
+        System.out.println("");
     }
 }
