@@ -352,16 +352,20 @@ public class UserInterface {
     }
 
     public static boolean askExtra() {
-        System.out.println("Do you want extra? (y/n)");
-        String extraDecision = scanner.nextLine();
-        boolean extra = false;
+        while (true) {
+            System.out.println("Do you want extra? (y/n)");
 
-        while (!(extraDecision.equalsIgnoreCase("y")) || !(extraDecision.equalsIgnoreCase("n"))) {
-            if (scanner.nextLine().equalsIgnoreCase("y")) {
-                extra = true;
-            } else if (scanner.nextLine().equalsIgnoreCase("n")) {
-                extra = false;
+            String input = scanner.nextLine();
+
+
+            if (input.equalsIgnoreCase("y")) {
+                return true;
             }
+
+            if (input.equalsIgnoreCase("n")) {
+                return false;
+            }
+
         }
 
         return extra;
