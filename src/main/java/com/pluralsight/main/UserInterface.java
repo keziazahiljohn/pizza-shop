@@ -474,6 +474,79 @@ public class UserInterface {
     }
 
     public static void comboMeal() {
+        System.out.println("Choose a combo meal!\n");
 
+        System.out.println("1. Family Pizza Deal   -   $30.00");
+        System.out.println("- 1 16\" pie");
+        System.out.println("- 2 bread sides");
+        System.out.println("- 2 large drinks\n");
+
+        System.out.println("2. Single Meal Deal   -   $7.00");
+        System.out.println("- 2 slices from an 8\" pie");
+        System.out.println("- any bread side");
+        System.out.println("- 1 medium drink");
+
+        System.out.println("3. Duo Deal   -   $10.00");
+        System.out.println("- 1/2 8\" pie");
+        System.out.println("- any bread side");
+        System.out.println("- 2 small drinks");
+
+        int comboChoice = Integer.parseInt(scanner.nextLine());
+
+        switch (comboChoice) {
+            case 1 -> {
+                ArrayList<Topping> toppings = new ArrayList<>();
+
+                Pizza pizza = new Pizza(16, "Regular", false, toppings);
+
+                currentOrder.addPizzaToOrder(pizza);
+
+                System.out.println("Choose first bread side:");
+                addBreadSide();
+
+                System.out.println("Choose second bread side:");
+                addBreadSide();
+
+                currentOrder.addDrinkToOrder(new Drink("Pepsi", 'L'));
+
+                currentOrder.addDrinkToOrder(new Drink("Pepsi", 'L'));
+
+                System.out.println("Family Deal added!");
+            }
+
+            case 2 -> {
+                ArrayList<Topping> toppings = new ArrayList<>();
+
+                Pizza pizza = new Pizza(8, "Regular", false, toppings);
+
+                currentOrder.addPizzaToOrder(pizza);
+
+                System.out.println("Choose a bread side:");
+                addBreadSide();
+
+                currentOrder.addDrinkToOrder(new Drink("Pepsi", 'M'));
+
+                System.out.println("Single Meal Deal added!");
+            }
+
+            case 3 -> {
+                ArrayList<Topping> toppings = new ArrayList<>();
+
+                Pizza pizza = new Pizza(8, "Regular", false, toppings);
+
+                currentOrder.addPizzaToOrder(pizza);
+
+                System.out.println("Choose a bread side:");
+                addBreadSide();
+
+                currentOrder.addDrinkToOrder(new Drink("Pepsi", 'S'));
+
+                currentOrder.addDrinkToOrder(new Drink("Pepsi", 'S'));
+
+                System.out.println("Duo Deal added!");
+            }
+
+            default -> System.out.println("Invalid combo.");
+        }
     }
 }
