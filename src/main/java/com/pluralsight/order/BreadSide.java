@@ -3,7 +3,7 @@ package com.pluralsight.order;
 public class BreadSide {
     private String sideType;
 
-    public BreadSide(double price, String sideType) {
+    public BreadSide(String sideType) {
         this.sideType = sideType.substring(0, 1).toUpperCase()
                         + sideType.substring(1).toLowerCase();
 
