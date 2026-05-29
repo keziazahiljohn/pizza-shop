@@ -6,29 +6,30 @@ import com.pluralsight.order.Pizza;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Scanner scanner = new Scanner(System.in);
-    private Order currentOrder;
+    private static Scanner scanner = new Scanner(System.in);
+    private static Order currentOrder;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = -1;
         while (choice != 2) {
             System.out.println("\nWelcome to Kezia's Pizza Shop!");
-            System.out.println("1. Start Ordering");
+            System.out.println("1. New Order");
             System.out.println("2. Exit");
             System.out.print("Your choice: ");
 
             if (!scanner.hasNextInt()) {
-                System.out.println("Please enter 1 or 2.");
-                scanner.nextLine();                 // discard bad input
-                continue;
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Please enter 1 or 2.");
+                    scanner.nextLine();
+                }
             }
             choice = scanner.nextInt();
             scanner.nextLine();                     // clear newline
 
             switch (choice) {
-                case 1 -> System.out.println("jk");// placeholder;
-                case 3 -> System.out.println("Have a saucy day :)!");
+                case 1 -> orderMenu();
+                case 2 -> System.out.println("Have a saucy day :)!");
                 default -> System.out.println("Invalid choice!");
             }
         }
@@ -36,7 +37,35 @@ public class UserInterface {
 
     }
 
-    public void addPizza() {
+    public static void orderMenu() {
+        boolean ordering = true;
+
+        while (ordering) {
+            System.out.println("Order Menu:");
+            System.out.println("1. Add Pizza");
+            System.out.println("2. Add Drink");
+            System.out.println("3. Add Bread Side");
+            System.out.println("4. Checkout");
+            System.out.println("0. Cancel Order");
+
+            if (!scanner.hasNextInt()) {
+                System.out.println("Please enter 1 or 2.");
+                scanner.nextLine();                 // discard bad input
+            }
+            int input = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (input) {
+                case 1 -> addPizza();
+                case 2 -> addDrink();
+                case 3 -> addBreadSide();
+                case 4 -> currentOrder.printOrder();
+            }
+        }
+    }
+
+    public static void addPizza() {
+        Scanner scanner = new Scanner(System.in);
         // Pizza Size
         System.out.println("Pick a size:");
         System.out.println("1. 8 in.");
@@ -94,5 +123,13 @@ public class UserInterface {
         if (stuffedCrust.equalsIgnoreCase("yes")){
 
         }
+    }
+
+    public static void addDrink() {
+
+    }
+
+    public static void addBreadSide() {
+
     }
 }

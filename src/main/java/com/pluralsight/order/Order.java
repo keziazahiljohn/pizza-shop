@@ -26,15 +26,15 @@ public class Order {
     }
 
     // helpers
-    public void addPizza(Pizza pizza) {
+    public void addPizzaToOrder(Pizza pizza) {
         pizzas.add(pizza);
     }
 
-    public void addDrink(Drink drink) {
+    public void addDrinkToOrder(Drink drink) {
         drinks.add(drink);
     }
 
-    public void addBreadSide(BreadSide breadSide) {
+    public void addBreadSideToOrder(BreadSide breadSide) {
         breadSides.add(breadSide);
     }
 
@@ -69,5 +69,6 @@ public class Order {
         for (BreadSide breadSide : breadSides) {
             breadSide.toString();
         }
+        System.out.println("Total: $%.2f%n" + calculateTotal());
     }
 }
