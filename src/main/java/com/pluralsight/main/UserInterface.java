@@ -65,7 +65,10 @@ public class UserInterface {
                 case 2 -> addDrink();
                 case 3 -> addBreadSide();
                 case 4 -> comboMeal();
-                case 5 -> currentOrder.printOrder();
+                case 5 -> {
+                    currentOrder.printOrder();
+                    ordering = false;
+                }
             }
         }
     }
@@ -229,7 +232,8 @@ public class UserInterface {
                     "3. Pesto\n" +
                     "4. BBQ\n" +
                     "5. Buffalo\n" +
-                    "6. Olive Oil\n");
+                    "6. Olive Oil\n" +
+                    "0. Done\n");
 
             int sauce = Integer.parseInt(scanner.nextLine());
 
@@ -305,7 +309,7 @@ public class UserInterface {
         // meat
         boolean pickingMeat = true;
         while (pickingMeat) {
-            System.out.println("Pick a cheese:");
+            System.out.println("Pick a meat:");
             System.out.println("1. Pepperoni\n" +
                     "2. Sausage\n" +
                     "3. Ham\n" +
@@ -367,8 +371,6 @@ public class UserInterface {
             }
 
         }
-
-        return extra;
     }
 
     public static void addDrink() {
