@@ -25,20 +25,35 @@ public class Order {
         return breadSides;
     }
 
+    // helpers
     public void addPizza(Pizza pizza) {
         pizzas.add(pizza);
     }
 
     public void addDrink(Drink drink) {
-
+        drinks.add(drink);
     }
 
     public void addBreadSide(BreadSide breadSide) {
-
+        breadSides.add(breadSide);
     }
 
-    public void calculateTotal() {
+    public double calculateTotal() {
+        // Pizza
+        double orderTotalCost = 0;
+        for (Pizza pizza : pizzas) {
+            orderTotalCost += pizza.calculatePrice();
+        }
 
+        // Drink
+        for (Drink drink : drinks) {
+            orderTotalCost += drink.calculatePrice();
+        }
+
+        for (BreadSide breadSide : breadSides) {
+            orderTotalCost += breadSide.calculatePrice();
+        }
+        return orderTotalCost;
     }
 
     public void printOrder() {

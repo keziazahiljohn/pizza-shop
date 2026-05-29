@@ -7,8 +7,5 @@ public abstract class Topping {
         this.name = name;
     }
 
-    public void calculatePrice() {
-        double price = 0.0;
-    }
-
+    public abstract double calculatePrice(int size);
 }

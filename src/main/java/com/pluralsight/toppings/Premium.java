@@ -5,6 +5,14 @@ public abstract class Premium extends Topping{
 
     public Premium(String name, boolean extra) {
         super(name);
+        this.extra = false;
+    }
+
+    public boolean isExtra() {
+        return extra;
+    }
+
+    public void setExtra(boolean extra) {
         this.extra = extra;
     }
 }

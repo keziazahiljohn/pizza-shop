@@ -1,22 +1,22 @@
 package com.pluralsight.order;
 
-public class BreadSide extends Item{
+public class BreadSide {
     private String sideType;
 
     public BreadSide(double price, String sideType) {
-        super(price);
-        this.sideType = sideType;
+        this.sideType = sideType.substring(0, 1).toUpperCase()
+                        + sideType.substring(1).toLowerCase();
+
     }
 
-    @Override
-    public void calculatePrice() {
+    public double calculatePrice() {
         double price = 1.50;
+        return price;
     }
 
     @Override
     public String toString() {
-        return "BreadSide{" +
-                "sideType='" + sideType + '\'' +
-                '}';
+        sideType
+        return sideType;
     }
 }

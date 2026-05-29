@@ -31,21 +31,55 @@ public class Pizza {
         return toppings;
     }
 
+    public String getCrustSize() {
+        return crustSize;
+    }
+
+    public boolean isStuffedCrust() {
+        return stuffedCrust;
+    }
+
+    // helpers
     public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
-    public void calculatePrice() {
+    public double calculatePrice() {
+        double totalPizzaPrice = 0;
+        switch (size) {
+            case 8 -> {
+                totalPizzaPrice = 8.50;
+            }
 
+            case 12 -> {
+                totalPizzaPrice = 12.00;
+            }
+
+            case 16 -> {
+                totalPizzaPrice = 16.50;
+            }
+        }
+        for (Topping topping : toppings) {
+            double price = topping.calculatePrice(size);
+            totalPizzaPrice += price;
+        }
+        return totalPizzaPrice;
     } // use for loop through toppings
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "size=" + size +
-                ", crustSize='" + crustSize + '\'' +
-                ", stuffedCrust=" + stuffedCrust +
-                ", toppings='" + toppings + '\'' +
-                '}';
+        String output = "1" + crustSize + "\" Pizza \n"
+                + "Crust Type: " + crustType + "\n";
+
+        if (isStuffedCrust()) {
+            output += "With Stuffed Crust";
+        }
+
+        output += "Toppings:\n";
+        for (Topping topping : toppings) {
+            output += " - " + topping;
+        }
+
+        return output;
     }
 }

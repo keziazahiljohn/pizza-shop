@@ -6,7 +6,7 @@ import com.pluralsight.order.Pizza;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private Order currentOrder;
 
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class UserInterface {
             scanner.nextLine();                     // clear newline
 
             switch (choice) {
-                case 1 -> addPizza();
+                case 1 -> System.out.println("jk");// placeholder;
                 case 3 -> System.out.println("Have a saucy day :)!");
                 default -> System.out.println("Invalid choice!");
             }
@@ -36,7 +36,7 @@ public class UserInterface {
 
     }
 
-    public static void addPizza() {
+    public void addPizza() {
         // Pizza Size
         System.out.println("Pick a size:");
         System.out.println("1. 8 in.");
