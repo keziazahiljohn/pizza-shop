@@ -16,7 +16,6 @@ public class BreadSide {
 
     @Override
     public String toString() {
-        sideType
         return sideType;
     }
 }
