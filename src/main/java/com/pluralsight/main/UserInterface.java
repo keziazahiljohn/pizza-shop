@@ -6,7 +6,9 @@ import com.pluralsight.order.Order;
 import com.pluralsight.order.Pizza;
 import com.pluralsight.toppings.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -14,7 +16,7 @@ public class UserInterface {
     private static Order currentOrder;
 
     public static void main(String[] args) {
-        currentOrder = new Order();
+        currentOrder = new Order(LocalDateTime.now(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         int choice = -1;
         while (choice != 2) {
             System.out.println("\nWelcome to Kezia's Pizza Shop!");
@@ -66,7 +68,7 @@ public class UserInterface {
                 case 3 -> addBreadSide();
                 case 4 -> comboMeal();
                 case 5 -> {
-                    currentOrder.printOrder();
+                    checkout();
                     ordering = false;
                 }
             }
@@ -202,7 +204,7 @@ public class UserInterface {
         boolean addingSideToppings = true;
         while (addingSideToppings) {
             System.out.println("Choose a side topping:");
-            System.out.println("1. Red Pepper\n" + "2. Parmesan\n" + "3. Done");
+            System.out.println("1. Red Pepper\n" + "2. Parmesan\n" + "0. Done");
             int sideToppings = Integer.parseInt(scanner.nextLine());
 
             switch (sideToppings) {
@@ -212,7 +214,7 @@ public class UserInterface {
                 case 2 -> {
                     toppings.add(new Side("Parmesan"));
                 }
-                case 3 -> {
+                case 0 -> {
                     addingSideToppings = false;
                 }
                 default -> {
@@ -553,6 +555,25 @@ public class UserInterface {
             }
 
             default -> System.out.println("Invalid combo.");
+
+        }
+
+    }
+
+    public static void checkout() {
+        System.out.println("Checkout:");
+        System.out.println("1. Confirm");
+        System.out.println("2. Cancel");
+
+        int choice = Integer.parseInt(scanner.nextLine());
+
+        if (choice == 1) {
+            currentOrder.printOrder();
+            System.out.println("Order Confirmed.");
+        } else if (choice == 2) {
+            System.out.println("Order Cancelled.");
+        } else {
+            System.out.println("Invalid entry.");
         }
     }
 }

@@ -58,7 +58,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        String output = "1" + size + "\" Pizza \n"
+        String output = size + "\" Pizza \n"
                 + "Crust Type: " + crustType + "\n";
 
         if (isStuffedCrust()) {
@@ -67,7 +67,7 @@ public class Pizza {
 
         output += "Toppings:\n";
         for (Topping topping : toppings) {
-            output += " - " + topping;
+            output += " - " + topping.getName() + "\n";
         }
 
         return output;

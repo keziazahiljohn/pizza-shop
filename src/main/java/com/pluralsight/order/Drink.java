@@ -5,8 +5,7 @@ public class Drink {
     private char size;
 
     public Drink(String flavor, char size) {
-        this.flavor = this.flavor.substring(0, 1).toUpperCase()
-                + this.flavor.substring(1).toLowerCase();
+        this.flavor = flavor;
         this.size = size;
     }
 

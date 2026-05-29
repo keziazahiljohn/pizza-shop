@@ -9,8 +9,15 @@ public class Order {
     private List<Drink> drinks;
     private List<BreadSide> breadSides;
 
+    public Order(LocalDateTime orderDateTime, List<Pizza> pizzas, List<Drink> drinks, List<BreadSide> breadSides) {
+        this.orderDateTime = orderDateTime;
+        this.pizzas = pizzas;
+        this.drinks = drinks;
+        this.breadSides = breadSides;
+    }
+
     public LocalDateTime getOrderDateTime() {
-        return LocalDateTime.now();
+        return orderDateTime;
     }
 
     public List<Pizza> getPizzas() {
@@ -59,16 +66,16 @@ public class Order {
     public void printOrder() {
         System.out.println("Complete Order:");
         for (Pizza pizza : pizzas) {
-            pizza.toString();
+            System.out.println(pizza);
         }
 
         for (Drink drink : drinks) {
-            drink.toString();
+            System.out.println(drink);
         }
 
         for (BreadSide breadSide : breadSides) {
-            breadSide.toString();
+            System.out.println(breadSide);
         }
-        System.out.println("Total: $%.2f%n" + calculateTotal());
+        System.out.println("Total: $" + calculateTotal());
     }
 }
