@@ -57,6 +57,17 @@ public class Order {
     }
 
     public void printOrder() {
+        System.out.println("Complete Order:");
+        for (Pizza pizza : pizzas) {
+            pizza.toString();
+        }
 
+        for (Drink drink : drinks) {
+            drink.toString();
+        }
+
+        for (BreadSide breadSide : breadSides) {
+            breadSide.toString();
+        }
     }
 }

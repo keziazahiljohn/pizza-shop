@@ -33,6 +33,6 @@ public class Drink {
 
     @Override
     public String toString() {
-        return flavor + " drink " + "(" + size + ")";
+        return flavor + " drink " + "(" + size + ")\n";
     }
 }

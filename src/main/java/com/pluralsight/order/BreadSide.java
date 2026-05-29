@@ -16,6 +16,6 @@ public class BreadSide {
 
     @Override
     public String toString() {
-        return sideType;
+        return sideType + "\n";
     }
 }
